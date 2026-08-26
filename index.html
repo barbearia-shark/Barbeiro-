@@ -2120,14 +2120,6 @@
                 Disponibilidade</button>
         </div>
 
-        <div class="history-box">
-            <div class="section-label">Histórico financeiro</div>
-            <h2 class="section-title">FEITOS POR MÊS</h2>
-            <div id="history-container">
-                <div class="day-empty">Carregando histórico...</div>
-            </div>
-        </div>
-
         <!-- AGENDAMENTOS POR DIA -->
         <div class="section-header" style="margin-bottom: 24px;">
             <div class="section-label">Agendamentos</div>
@@ -2136,6 +2128,17 @@
 
         <div class="days-container" id="days-container">
             <div class="day-empty">Carregando agendamentos...</div>
+        </div>
+
+        <div class="history-box" style="margin-top: 40px;">
+            <button class="btn-primary" id="show-history-btn" onclick="showHistory()">Exibir histórico</button>
+            <div id="history-content" style="display: none;">
+                <div class="section-label">Histórico financeiro</div>
+                <h2 class="section-title">FEITOS POR MÊS</h2>
+                <div id="history-container">
+                    <div class="day-empty">Carregando histórico...</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal-overlay" id="login-modal">
@@ -2160,6 +2163,17 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="delete-confirm-modal">
+        <div class="modal">
+            <h2>Excluir agendamento?</h2>
+            <p>Este agendamento será removido do histórico e dos registros.</p>
+            <div class="modal-buttons">
+                <button type="button" class="modal-btn-secondary" onclick="closeDeleteModal()">Cancelar</button>
+                <button type="button" class="modal-btn-primary" onclick="confirmDeleteAppointment()">Excluir</button>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         const BARBER_WHATSAPP = "553899390267";
@@ -2174,6 +2188,7 @@
         let _firebaseInitialized = false;
         let _locallyCompletedIds = [];
         let _completedIdsFromFirebase = [];
+        let _deletedAppointmentIds = [];
         let _isProcessingQueue = false;
         let _completionQueue = [];
 
@@ -2197,7 +2212,9 @@
                 const col = window._collection(window._db, 'appointments');
                 const snap = await window._getDocs(col);
                 const list = [];
-                snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+                snap.forEach(d => {
+                    if (!_deletedAppointmentIds.includes(d.id)) list.push({ id: d.id, ...d.data() });
+                });
                 _appointmentsCache = list;
                 return list;
             } catch (e) {
@@ -2300,7 +2317,9 @@
             const col = window._collection(window._db, 'appointments');
             window._onSnapshot(col, (snap) => {
                 const list = [];
-                snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+                snap.forEach(d => {
+                    if (!_deletedAppointmentIds.includes(d.id)) list.push({ id: d.id, ...d.data() });
+                });
                 _appointmentsCache = list;
                 if (callback) callback(list);
             });
@@ -2638,12 +2657,42 @@
             return phone.replace(/\D/g, '');
         }
 
+        let appointmentPendingDeletion = null;
+
+        function showHistory() {
+            document.getElementById('history-content').style.display = 'block';
+            document.getElementById('show-history-btn').style.display = 'none';
+            renderHistory();
+        }
+
+        function openDeleteModal(id) {
+            appointmentPendingDeletion = id;
+            document.getElementById('delete-confirm-modal').classList.add('active');
+        }
+
+        function closeDeleteModal() {
+            appointmentPendingDeletion = null;
+            document.getElementById('delete-confirm-modal').classList.remove('active');
+        }
+
+        async function confirmDeleteAppointment() {
+            if (!appointmentPendingDeletion) return;
+            const id = appointmentPendingDeletion;
+            closeDeleteModal();
+            await deleteAppointment(id);
+        }
+
         async function deleteAppointment(id) {
-            if (!window.confirm('Excluir este agendamento? Ele será removido das somas do mês.')) return;
-            await deleteAppointmentFS(id);
-            await deleteCompletedAppointmentFS(id);
-            removeLocallyCompletedId(id);
-            _completedIdsFromFirebase = _completedIdsFromFirebase.filter(completedId => completedId !== id);
+            const normalizedId = String(id);
+            if (!_deletedAppointmentIds.includes(normalizedId)) _deletedAppointmentIds.push(normalizedId);
+            _appointmentsCache = _appointmentsCache.filter(appointment => String(appointment.id) !== normalizedId);
+            renderAdminTable();
+            renderHistory();
+            renderTimeSlots();
+            await deleteAppointmentFS(normalizedId);
+            await deleteCompletedAppointmentFS(normalizedId);
+            removeLocallyCompletedId(normalizedId);
+            _completedIdsFromFirebase = _completedIdsFromFirebase.filter(completedId => String(completedId) !== normalizedId);
             await getAppointmentsFS();
             renderAdminTable();
             renderHistory();
@@ -3034,7 +3083,7 @@
                     html += '<div class="app-price">R$ ' + app.total.toFixed(2).replace('.', ',') + '</div>';
                     html += '<div class="app-actions">';
                     html += '<button class="btn-done-small" onclick="markAppointmentDone(\'' + app.id + '\')">Marcar feito</button>';
-                    html += '<button class="btn-delete-small" onclick="deleteAppointment(\'' + app.id + '\')">Excluir</button>';
+                    html += '<button type="button" class="btn-delete-small" onclick="openDeleteModal(\'' + app.id + '\')">Excluir</button>';
                     html += '</div>';
                     html += '</div>';
                 });
@@ -3066,7 +3115,7 @@
             });
 
             const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-            const sortedMonths = Object.values(months).sort((a, b) => b.year - a.year || b.month - a.month);
+            const sortedMonths = Object.values(months).sort((a, b) => a.year - b.year || a.month - b.month);
             if (sortedMonths.length === 0) {
                 container.innerHTML = '<div class="day-empty">Nenhum registro no histórico.</div>';
                 return;
@@ -3078,10 +3127,10 @@
                 const items = doneApps.map(app =>
                     '<div class="history-item"><div class="history-item-info"><div class="history-item-name">' + app.name + '</div>' +
                     '<div class="history-item-detail">' + app.date + ' às ' + app.time + ' | ' + app.services + ' | R$ ' + Number(app.total || 0).toFixed(2).replace('.', ',') + '</div></div>' +
-                    '<button class="btn-delete-small" onclick="deleteAppointment(\'' + app.id + '\')">Excluir</button></div>'
+                    '<button type="button" class="btn-delete-small" onclick="openDeleteModal(\'' + app.id + '\')">Excluir</button></div>'
                 ).join('');
 
-                return '<div class="history-month"><div class="history-month-header"><span>' + monthNames[group.month - 1] + ' ' + group.year + '</span><span>' + group.apps.length + ' registros</span></div>' +
+                return '<div class="history-month"><div class="history-month-header"><span>' + monthNames[group.month - 1] + ' ' + group.year + '</span><span>' + doneApps.length + ' feitos</span></div>' +
                     '<div class="history-summary-row"><span>Cortes feitos</span><strong>' + doneApps.length + ' | R$ ' + doneTotal.toFixed(2).replace('.', ',') + '</strong></div>' +
                     (items ? '<div class="history-items">' + items + '</div>' : '') + '</div>';
             }).join('');
