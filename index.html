@@ -2122,7 +2122,7 @@
 
         <div class="history-box">
             <div class="section-label">Histórico financeiro</div>
-            <h2 class="section-title">FEITOS E PENDENTES POR MÊS</h2>
+            <h2 class="section-title">FEITOS POR MÊS</h2>
             <div id="history-container">
                 <div class="day-empty">Carregando histórico...</div>
             </div>
@@ -3074,9 +3074,7 @@
 
             container.innerHTML = sortedMonths.map(group => {
                 const doneApps = group.apps.filter(app => isCompletedId(app.id));
-                const pendingApps = group.apps.filter(app => !isCompletedId(app.id));
                 const doneTotal = doneApps.reduce((sum, app) => sum + Number(app.total || 0), 0);
-                const pendingTotal = pendingApps.reduce((sum, app) => sum + Number(app.total || 0), 0);
                 const items = doneApps.map(app =>
                     '<div class="history-item"><div class="history-item-info"><div class="history-item-name">' + app.name + '</div>' +
                     '<div class="history-item-detail">' + app.date + ' às ' + app.time + ' | ' + app.services + ' | R$ ' + Number(app.total || 0).toFixed(2).replace('.', ',') + '</div></div>' +
@@ -3085,7 +3083,6 @@
 
                 return '<div class="history-month"><div class="history-month-header"><span>' + monthNames[group.month - 1] + ' ' + group.year + '</span><span>' + group.apps.length + ' registros</span></div>' +
                     '<div class="history-summary-row"><span>Cortes feitos</span><strong>' + doneApps.length + ' | R$ ' + doneTotal.toFixed(2).replace('.', ',') + '</strong></div>' +
-                    '<div class="history-summary-row"><span>Pendentes</span><strong>' + pendingApps.length + ' | R$ ' + pendingTotal.toFixed(2).replace('.', ',') + '</strong></div>' +
                     (items ? '<div class="history-items">' + items + '</div>' : '') + '</div>';
             }).join('');
         }
