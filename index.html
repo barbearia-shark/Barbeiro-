@@ -2033,6 +2033,237 @@
                 gap: 4px;
             }
         }
+
+        /* ===== CALENDÁRIO ADMIN ===== */
+        .admin-calendar-section {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 32px;
+        }
+
+        .admin-calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .admin-calendar-header h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .admin-calendar-nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        .admin-calendar-nav button {
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admin-calendar-nav button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .admin-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .admin-calendar-weekday {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 0;
+        }
+
+        .admin-calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-primary);
+            background: var(--bg-card-solid);
+            border: 1px solid transparent;
+            position: relative;
+            min-height: 48px;
+        }
+
+        .admin-calendar-day:hover:not(.empty):not(.disabled) {
+            border-color: var(--accent);
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        .admin-calendar-day.selected {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+
+        .admin-calendar-day.selected .day-dot {
+            background: var(--bg-dark);
+        }
+
+        .admin-calendar-day.empty {
+            cursor: default;
+            background: transparent;
+        }
+
+        .admin-calendar-day.disabled {
+            opacity: 0.25;
+            cursor: not-allowed;
+        }
+
+        .admin-calendar-day.has-appointments {
+            border-color: rgba(79, 195, 247, 0.35);
+        }
+
+        .admin-calendar-day.has-appointments .day-dot {
+            display: block;
+        }
+
+        .day-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-top: 4px;
+            display: none;
+        }
+
+        .admin-calendar-day .day-count {
+            position: absolute;
+            top: 4px;
+            right: 6px;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(79, 195, 247, 0.15);
+            padding: 1px 5px;
+            border-radius: 8px;
+            line-height: 1;
+        }
+
+        .admin-calendar-day.selected .day-count {
+            color: var(--bg-dark);
+            background: rgba(10, 22, 40, 0.25);
+        }
+
+        .day-appointments-panel {
+            margin-top: 24px;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .day-appointments-panel h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .day-appointments-panel .day-empty {
+            padding: 40px 20px;
+        }
+
+        .back-to-calendar {
+            display: none;
+            margin-bottom: 16px;
+        }
+
+        .back-to-calendar button {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .back-to-calendar button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .admin-calendar-grid {
+                gap: 4px;
+            }
+
+            .admin-calendar-day {
+                min-height: 44px;
+                font-size: 13px;
+                border-radius: 8px;
+            }
+
+            .admin-calendar-weekday {
+                font-size: 10px;
+                padding: 6px 0;
+            }
+
+            .admin-calendar-section {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .admin-calendar-day {
+                min-height: 40px;
+                font-size: 12px;
+            }
+
+            .admin-calendar-day .day-count {
+                font-size: 8px;
+                padding: 1px 3px;
+                top: 2px;
+                right: 3px;
+            }
+        }
     </style>
     <base target="_blank">
 
@@ -2072,6 +2303,7 @@
             window._firebaseReady = false;
         }
     </script>
+    <base target="_blank">
     <base target="_blank">
     <base target="_blank">
     <base target="_blank">
@@ -2120,10 +2352,37 @@
                 Disponibilidade</button>
         </div>
 
-        <!-- AGENDAMENTOS POR DIA -->
+        <!-- CALENDÁRIO ADMIN -->
+        <div class="admin-calendar-section">
+            <div class="admin-calendar-header">
+                <h3 id="admin-calendar-month">Setembro 2026</h3>
+                <div class="admin-calendar-nav">
+                    <button onclick="changeAdminMonth(-1)">&#10094;</button>
+                    <button onclick="changeAdminMonth(1)">&#10095;</button>
+                </div>
+            </div>
+            <div class="admin-calendar-grid" id="admin-calendar-weekdays">
+                <div class="admin-calendar-weekday">Dom</div>
+                <div class="admin-calendar-weekday">Seg</div>
+                <div class="admin-calendar-weekday">Ter</div>
+                <div class="admin-calendar-weekday">Qua</div>
+                <div class="admin-calendar-weekday">Qui</div>
+                <div class="admin-calendar-weekday">Sex</div>
+                <div class="admin-calendar-weekday">Sáb</div>
+            </div>
+            <div class="admin-calendar-grid" id="admin-calendar-days" style="margin-top: 6px;">
+                <!-- Dias gerados via JS -->
+            </div>
+        </div>
+
+        <!-- AGENDAMENTOS DO DIA SELECIONADO -->
+        <div class="back-to-calendar" id="back-to-calendar">
+            <button onclick="showAllAppointments()">&#10094; Voltar para todos os agendamentos</button>
+        </div>
+
         <div class="section-header" style="margin-bottom: 24px;">
-            <div class="section-label">Agendamentos</div>
-            <h2 class="section-title">PRÓXIMOS DIAS</h2>
+            <div class="section-label" id="appointments-label">Agendamentos</div>
+            <h2 class="section-title" id="appointments-title">PRÓXIMOS DIAS</h2>
         </div>
 
         <div class="days-container" id="days-container">
@@ -2483,6 +2742,7 @@
 
 
             renderAvailabilityEditor();
+            renderAdminCalendar();
 
             updateConfigStatus();
 
@@ -2966,6 +3226,7 @@
             document.getElementById('login-modal').classList.remove('active');
             await getAppointmentsFS();
             renderAdminTable();
+            renderAdminCalendar();
             updateConfigStatus();
             renderAvailabilityEditor();
             if (isFirebaseReady()) {
@@ -3184,6 +3445,173 @@
                 openLoginModal();
             }, 300);
         });
+
+
+        // ========== CALENDÁRIO ADMIN ==========
+        let adminCalendarDate = new Date();
+        let adminSelectedDate = null;
+
+        function renderAdminCalendar() {
+            const year = adminCalendarDate.getFullYear();
+            const month = adminCalendarDate.getMonth();
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            document.getElementById('admin-calendar-month').textContent = monthNames[month] + ' ' + year;
+
+            const container = document.getElementById('admin-calendar-days');
+            container.innerHTML = '';
+
+            // Espaços vazios antes do primeiro dia
+            for (let i = 0; i < firstDay; i++) {
+                const div = document.createElement('div');
+                div.className = 'admin-calendar-day empty';
+                container.appendChild(div);
+            }
+
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Contar agendamentos por dia
+            const appointmentsByDay = {};
+            _appointmentsCache.forEach(app => {
+                if (!isCompletedId(app.id)) {
+                    if (!appointmentsByDay[app.date]) appointmentsByDay[app.date] = 0;
+                    appointmentsByDay[app.date]++;
+                }
+            });
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const div = document.createElement('div');
+                div.className = 'admin-calendar-day';
+                div.textContent = day;
+
+                const thisDate = new Date(year, month, day);
+                const isPast = thisDate < today;
+                const dateStr = formatDate(thisDate);
+                const hasAppointments = appointmentsByDay[dateStr] > 0;
+                const count = appointmentsByDay[dateStr] || 0;
+
+                if (isPast) {
+                    div.classList.add('disabled');
+                } else {
+                    div.onclick = function () { selectAdminDate(day); };
+                }
+
+                if (hasAppointments) {
+                    div.classList.add('has-appointments');
+                    const countBadge = document.createElement('span');
+                    countBadge.className = 'day-count';
+                    countBadge.textContent = count;
+                    div.appendChild(countBadge);
+                }
+
+                const dot = document.createElement('span');
+                dot.className = 'day-dot';
+                div.appendChild(dot);
+
+                // Verifica se está selecionado
+                if (adminSelectedDate &&
+                    adminSelectedDate.getDate() === day &&
+                    adminSelectedDate.getMonth() === month &&
+                    adminSelectedDate.getFullYear() === year) {
+                    div.classList.add('selected');
+                }
+
+                container.appendChild(div);
+            }
+        }
+
+        function changeAdminMonth(delta) {
+            adminCalendarDate.setMonth(adminCalendarDate.getMonth() + delta);
+            renderAdminCalendar();
+        }
+
+        function selectAdminDate(day) {
+            adminSelectedDate = new Date(adminCalendarDate.getFullYear(), adminCalendarDate.getMonth(), day);
+            renderAdminCalendar();
+            renderDayAppointments(adminSelectedDate);
+        }
+
+        function renderDayAppointments(date) {
+            const container = document.getElementById('days-container');
+            const label = document.getElementById('appointments-label');
+            const title = document.getElementById('appointments-title');
+            const backBtn = document.getElementById('back-to-calendar');
+
+            if (!container) return;
+
+            const dateStr = formatDate(date);
+            const weekDays = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+            const dayName = weekDays[date.getDay()];
+            const monthName = monthNames[date.getMonth()];
+
+            label.textContent = dayName;
+            title.textContent = date.getDate() + ' de ' + monthName;
+            backBtn.style.display = 'block';
+
+            const dayApps = _appointmentsCache.filter(app => app.date === dateStr && !isCompletedId(app.id));
+
+            if (dayApps.length === 0) {
+                container.innerHTML = '<div class="day-empty">Nenhum agendamento para este dia.</div>';
+                return;
+            }
+
+            // Ordenar por horário
+            dayApps.sort((a, b) => {
+                const timeA = a.time.split(':').map(Number);
+                const timeB = b.time.split(':').map(Number);
+                return (timeA[0] * 60 + timeA[1]) - (timeB[0] * 60 + timeB[1]);
+            });
+
+            let dayTotal = dayApps.reduce((sum, app) => sum + app.total, 0);
+
+            let html = '<div class="day-card" style="animation: slideDown 0.3s ease;">';
+            html += '<div class="day-header">';
+            html += '<div class="day-title">' + dayName + ', ' + date.getDate() + ' de ' + monthName + '</div>';
+            html += '<div class="day-count">' + dayApps.length + ' agendamentos</div>';
+            html += '</div>';
+
+            html += '<div class="day-appointments">';
+            dayApps.forEach(app => {
+                html += '<div class="day-appointment-item">';
+                html += '<div class="app-info">';
+                html += '<div class="app-time">' + app.time + '</div>';
+                html += '<div class="app-client-name">' + app.name + '</div>';
+                html += '<div class="app-services">' + app.services + '</div>';
+                html += '<div class="app-phone">' + app.phone + '</div>';
+                html += '</div>';
+                html += '<div class="app-price">R$ ' + app.total.toFixed(2).replace('.', ',') + '</div>';
+                html += '<div class="app-actions">';
+                html += '<button class="btn-done-small" onclick="markAppointmentDone(\'' + app.id + '\')">Marcar feito</button>';
+                html += '<button type="button" class="btn-delete-small" onclick="openDeleteModal(\'' + app.id + '\')">Excluir</button>';
+                html += '</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+
+            html += '<div class="day-total-bar">';
+            html += '<span class="day-total-label">Total do dia: <span class="day-total-value">R$ ' + dayTotal.toFixed(2).replace('.', ',') + '</span></span>';
+            html += '</div>';
+            html += '</div>';
+
+            container.innerHTML = html;
+        }
+
+        function showAllAppointments() {
+            adminSelectedDate = null;
+            renderAdminCalendar();
+            renderAdminTable();
+            document.getElementById('back-to-calendar').style.display = 'none';
+        }
+
+        // Sobrescreve renderAdminTable para também atualizar o calendário
+        const _originalRenderAdminTable = renderAdminTable;
+        renderAdminTable = function () {
+            _originalRenderAdminTable();
+            renderAdminCalendar();
+        };
+
     </script>
 
 </body>
