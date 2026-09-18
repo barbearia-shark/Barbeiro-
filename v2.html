@@ -1699,6 +1699,7 @@
             font-size: 18px;
             width: 24px;
             text-align: center;
+            display: none;
         }
 
         .admin-content {
@@ -2400,7 +2401,7 @@
     <base target="_blank">
     <base target="_blank">
     <base target="_blank">
-<base target="_blank">
+    <base target="_blank">
 </head>
 
 <body>
@@ -2419,106 +2420,111 @@
         </div>
 
         <div class="admin-layout">
-    <aside class="admin-menu">
-        <button type="button" class="admin-menu-item active" data-section="agendamentos"
-            onclick="showAdminSection('agendamentos')"><span class="menu-icon">📅</span>
-            Agendamentos</button>
-        <button type="button" class="admin-menu-item" data-section="disponibilidade"
-            onclick="showAdminSection('disponibilidade')"><span class="menu-icon">🕐</span>
-            Disponibilidade Semanal</button>
-        <button type="button" class="admin-menu-item" data-section="configuracoes"
-            onclick="showAdminSection('configuracoes')"><span class="menu-icon">⚙️</span>
-            Configurações</button>
-        <button type="button" class="admin-menu-item" data-section="historico"
-            onclick="showAdminSection('historico')"><span class="menu-icon">📊</span>
-            Histórico</button>
-    </aside>
-    <div class="admin-content">
-        <div class="admin-section" data-section="configuracoes" id="sec-configuracoes">
-<!-- CONFIGURAÇÕES -->
-        <div class="config-grid">
-            <div class="config-box">
-                <h3>Notificação por WhatsApp</h3>
-                <p>Quando um cliente faz agendamento, uma mensagem é enviada automaticamente para o WhatsApp do
-                    barbeiro.</p>
-                <p><span class="highlight">Status:</span> <span id="whatsapp-status">Número não configurado</span></p>
-                <div class="form-group" style="margin-top: 12px;">
-                    <label style="display: flex; align-items: center; gap: 10px; font-size: 13px;">
-                        <input type="checkbox" id="whatsapp-enabled-checkbox" onchange="toggleWhatsAppEnabled(this)">
-                        Enviar notificação por WhatsApp
-                    </label>
+            <aside class="admin-menu">
+                <button type="button" class="admin-menu-item active" data-section="agendamentos"
+                    onclick="showAdminSection('agendamentos')"><span class="menu-icon">📅</span>
+                    Agendamentos</button>
+                <button type="button" class="admin-menu-item" data-section="disponibilidade"
+                    onclick="showAdminSection('disponibilidade')"><span class="menu-icon">🕐</span>
+                    Disponibilidade Semanal</button>
+                <button type="button" class="admin-menu-item" data-section="configuracoes"
+                    onclick="showAdminSection('configuracoes')"><span class="menu-icon">⚙️</span>
+                    Configurações</button>
+                <button type="button" class="admin-menu-item" data-section="historico"
+                    onclick="showAdminSection('historico')"><span class="menu-icon">📊</span>
+                    Histórico</button>
+            </aside>
+            <div class="admin-content">
+                <div class="admin-section" data-section="configuracoes" id="sec-configuracoes">
+                    <!-- CONFIGURAÇÕES -->
+                    <div class="config-grid">
+                        <div class="config-box">
+                            <h3>Notificação por WhatsApp</h3>
+                            <p>Quando um cliente faz agendamento, uma mensagem é enviada automaticamente para o WhatsApp
+                                do
+                                barbeiro.</p>
+                            <p><span class="highlight">Status:</span> <span id="whatsapp-status">Número não
+                                    configurado</span></p>
+                            <div class="form-group" style="margin-top: 12px;">
+                                <label style="display: flex; align-items: center; gap: 10px; font-size: 13px;">
+                                    <input type="checkbox" id="whatsapp-enabled-checkbox"
+                                        onchange="toggleWhatsAppEnabled(this)">
+                                    Enviar notificação por WhatsApp
+                                </label>
+                            </div>
+                            <a href="#" class="btn-whatsapp" id="whatsapp-test-btn"
+                                style="margin-top: 12px; display: none;" target="_blank">Testar WhatsApp</a>
+                        </div>
+                    </div>
+
                 </div>
-                <a href="#" class="btn-whatsapp" id="whatsapp-test-btn" style="margin-top: 12px; display: none;"
-                    target="_blank">Testar WhatsApp</a>
-            </div>
-        </div>
+                <div class="admin-section" data-section="disponibilidade" id="sec-disponibilidade">
+                    <!-- DISPONIBILIDADE SEMANAL -->
+                    <div class="availability-box">
+                        <h3>Disponibilidade Semanal</h3>
+                        <p class="availability-description">Clique nos horários para ativar/desativar. Os selecionados
+                            ficam azuis e
+                            serão exibidos aos clientes.</p>
+                        <div id="availability-days"></div>
+                        <button class="btn-primary" onclick="saveAvailability()" style="margin-top: 16px;">Salvar
+                            Disponibilidade</button>
+                    </div>
 
-        </div>
-<div class="admin-section" data-section="disponibilidade" id="sec-disponibilidade">
-<!-- DISPONIBILIDADE SEMANAL -->
-        <div class="availability-box">
-            <h3>Disponibilidade Semanal</h3>
-            <p class="availability-description">Clique nos horários para ativar/desativar. Os selecionados ficam azuis e
-                serão exibidos aos clientes.</p>
-            <div id="availability-days"></div>
-            <button class="btn-primary" onclick="saveAvailability()" style="margin-top: 16px;">Salvar
-                Disponibilidade</button>
-        </div>
-
-        </div>
-<div class="admin-section active" data-section="agendamentos" id="sec-agendamentos">
-<!-- CALENDÁRIO ADMIN -->
-        <div class="admin-calendar-section">
-            <div class="admin-calendar-header">
-                <h3 id="admin-calendar-month">Setembro 2026</h3>
-                <div class="admin-calendar-nav">
-                    <button onclick="changeAdminMonth(-1)">&#10094;</button>
-                    <button onclick="changeAdminMonth(1)">&#10095;</button>
                 </div>
-            </div>
-            <div class="admin-calendar-grid" id="admin-calendar-weekdays">
-                <div class="admin-calendar-weekday">Dom</div>
-                <div class="admin-calendar-weekday">Seg</div>
-                <div class="admin-calendar-weekday">Ter</div>
-                <div class="admin-calendar-weekday">Qua</div>
-                <div class="admin-calendar-weekday">Qui</div>
-                <div class="admin-calendar-weekday">Sex</div>
-                <div class="admin-calendar-weekday">Sáb</div>
-            </div>
-            <div class="admin-calendar-grid" id="admin-calendar-days" style="margin-top: 6px;">
-                <!-- Dias gerados via JS -->
-            </div>
-        </div>
+                <div class="admin-section active" data-section="agendamentos" id="sec-agendamentos">
+                    <!-- CALENDÁRIO ADMIN -->
+                    <div class="admin-calendar-section">
+                        <div class="admin-calendar-header">
+                            <h3 id="admin-calendar-month">Setembro 2026</h3>
+                            <div class="admin-calendar-nav">
+                                <button onclick="changeAdminMonth(-1)">&#10094;</button>
+                                <button onclick="changeAdminMonth(1)">&#10095;</button>
+                            </div>
+                        </div>
+                        <div class="admin-calendar-grid" id="admin-calendar-weekdays">
+                            <div class="admin-calendar-weekday">Dom</div>
+                            <div class="admin-calendar-weekday">Seg</div>
+                            <div class="admin-calendar-weekday">Ter</div>
+                            <div class="admin-calendar-weekday">Qua</div>
+                            <div class="admin-calendar-weekday">Qui</div>
+                            <div class="admin-calendar-weekday">Sex</div>
+                            <div class="admin-calendar-weekday">Sáb</div>
+                        </div>
+                        <div class="admin-calendar-grid" id="admin-calendar-days" style="margin-top: 6px;">
+                            <!-- Dias gerados via JS -->
+                        </div>
+                    </div>
 
-        <!-- AGENDAMENTOS DO DIA SELECIONADO -->
-        <div class="back-to-calendar" id="back-to-calendar">
-            <button onclick="showAllAppointments()">&#10094; Voltar para todos os agendamentos</button>
-        </div>
+                    <!-- AGENDAMENTOS DO DIA SELECIONADO -->
+                    <div class="back-to-calendar" id="back-to-calendar">
+                        <button onclick="showAllAppointments()">&#10094; Voltar para todos os agendamentos</button>
+                    </div>
 
-        <div class="section-header" style="margin-bottom: 24px;">
-            <div class="section-label" id="appointments-label">Agendamentos</div>
-            <h2 class="section-title" id="appointments-title">PRÓXIMOS DIAS</h2>
-        </div>
+                    <div class="section-header" style="margin-bottom: 24px;">
+                        <div class="section-label" id="appointments-label">Agendamentos</div>
+                        <h2 class="section-title" id="appointments-title">PRÓXIMOS DIAS</h2>
+                    </div>
 
-        <div class="days-container" id="days-container">
-            <div class="day-empty">Carregando agendamentos...</div>
-        </div>
+                    <div class="days-container" id="days-container">
+                        <div class="day-empty">Carregando agendamentos...</div>
+                    </div>
 
-        </div>
-<div class="admin-section" data-section="historico" id="sec-historico">
-<div class="history-box" style="margin-top: 0;">
-            <button class="btn-primary" id="show-history-btn" onclick="showHistory()">Exibir histórico</button>
-            <div id="history-content" style="display: none;">
-                <div class="section-label">Histórico financeiro</div>
-                <h2 class="section-title">FEITOS POR MÊS</h2>
-                <div id="history-container">
-                    <div class="day-empty">Carregando histórico...</div>
                 </div>
-            </div>
-        </div>
-        </div><!-- /sec-historico -->
-        </div><!-- /admin-content -->
-    </div><!-- /admin-layout -->
+                <div class="admin-section" data-section="historico" id="sec-historico">
+                    <div class="history-box" style="margin-top: 0;">
+                        <button class="btn-primary" id="show-history-btn" onclick="showHistory()">Exibir
+                            histórico</button>
+                        <div id="history-content" style="display: none;">
+                            <div class="section-label">Histórico financeiro</div>
+                            <h2 class="section-title">FEITOS POR MÊS</h2>
+                            <div id="history-container">
+                                <div class="day-empty">Carregando histórico...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /sec-historico -->
+            </div><!-- /admin-content -->
+        </div><!-- /admin-layout -->
     </div>
     <div class="modal-overlay" id="login-modal">
         <div class="modal">
@@ -2592,7 +2598,9 @@
                 const snap = await window._getDocs(col);
                 const list = [];
                 snap.forEach(d => {
-                    if (!_deletedAppointmentIds.includes(d.id)) list.push({ id: d.id, ...d.data() });
+                    const normalizedId = String(d.id);
+                    if (_deletedAppointmentIds.includes(normalizedId)) return;
+                    list.push({ id: d.id, ...d.data() });
                 });
                 _appointmentsCache = list;
                 return list;
@@ -2622,34 +2630,33 @@
         }
 
         async function updateAppointmentStatusFS(id, status) {
-            if (!isFirebaseReady()) {
-                const list = getAppointmentsLS();
-                const a = list.find(x => x.id === id);
-                if (a) { a.status = status; localStorage.setItem('barbearia_appointments', JSON.stringify(list)); }
-                return;
+            const normalizedId = String(id);
+            const list = getAppointmentsLS();
+            const a = list.find(x => String(x.id) === normalizedId);
+            if (a) {
+                a.status = status;
+                localStorage.setItem('barbearia_appointments', JSON.stringify(list));
             }
+
+            if (!isFirebaseReady()) return;
             try {
-                await window._updateDoc(window._doc(window._db, 'appointments', String(id)), { status: status });
+                await window._updateDoc(window._doc(window._db, 'appointments', normalizedId), { status: status });
             } catch (e) {
-                const list = getAppointmentsLS();
-                const a = list.find(x => x.id === id);
-                if (a) { a.status = status; localStorage.setItem('barbearia_appointments', JSON.stringify(list)); }
+                console.warn('Erro ao atualizar status no Firebase:', e);
             }
         }
 
         async function deleteAppointmentFS(id) {
-            if (!isFirebaseReady()) {
-                let list = getAppointmentsLS();
-                list = list.filter(a => a.id !== id);
-                localStorage.setItem('barbearia_appointments', JSON.stringify(list));
-                return;
-            }
+            const normalizedId = String(id);
+            let list = getAppointmentsLS();
+            list = list.filter(a => String(a.id) !== normalizedId);
+            localStorage.setItem('barbearia_appointments', JSON.stringify(list));
+
+            if (!isFirebaseReady()) return;
             try {
-                await window._deleteDoc(window._doc(window._db, 'appointments', String(id)));
+                await window._deleteDoc(window._doc(window._db, 'appointments', normalizedId));
             } catch (e) {
-                let list = getAppointmentsLS();
-                list = list.filter(a => a.id !== id);
-                localStorage.setItem('barbearia_appointments', JSON.stringify(list));
+                console.warn('Erro ao excluir agendamento no Firebase:', e);
             }
         }
 
@@ -2697,7 +2704,9 @@
             window._onSnapshot(col, (snap) => {
                 const list = [];
                 snap.forEach(d => {
-                    if (!_deletedAppointmentIds.includes(d.id)) list.push({ id: d.id, ...d.data() });
+                    const normalizedId = String(d.id);
+                    if (_deletedAppointmentIds.includes(normalizedId)) return;
+                    list.push({ id: d.id, ...d.data() });
                 });
                 _appointmentsCache = list;
                 if (callback) callback(list);
@@ -2751,6 +2760,33 @@
         function removeLocallyCompletedId(id) {
             _locallyCompletedIds = _locallyCompletedIds.filter(x => x !== id);
             saveLocallyCompletedIds();
+        }
+
+        function getDeletedAppointmentIds() {
+            try {
+                const data = localStorage.getItem('barbearia_deleted_ids');
+                return data ? JSON.parse(data) : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveDeletedAppointmentIds() {
+            localStorage.setItem('barbearia_deleted_ids', JSON.stringify(_deletedAppointmentIds));
+        }
+
+        function addDeletedAppointmentId(id) {
+            const normalizedId = String(id);
+            if (!_deletedAppointmentIds.includes(normalizedId)) {
+                _deletedAppointmentIds.push(normalizedId);
+            }
+            saveDeletedAppointmentIds();
+        }
+
+        function removeDeletedAppointmentId(id) {
+            const normalizedId = String(id);
+            _deletedAppointmentIds = _deletedAppointmentIds.filter(x => x !== normalizedId);
+            saveDeletedAppointmentIds();
         }
 
         // ========== COMPLETED APPOINTMENTS (Firebase) ==========
@@ -2834,6 +2870,7 @@
 
         async function initApp() {
             _locallyCompletedIds = getLocallyCompletedIds();
+            _deletedAppointmentIds = getDeletedAppointmentIds();
 
             // Busca concluídos do Firebase ao iniciar
             if (isFirebaseReady()) {
@@ -3064,15 +3101,19 @@
 
         async function deleteAppointment(id) {
             const normalizedId = String(id);
-            if (!_deletedAppointmentIds.includes(normalizedId)) _deletedAppointmentIds.push(normalizedId);
+            addDeletedAppointmentId(normalizedId);
+            removeLocallyCompletedId(normalizedId);
+            _completedIdsFromFirebase = _completedIdsFromFirebase.filter(completedId => String(completedId) !== normalizedId);
             _appointmentsCache = _appointmentsCache.filter(appointment => String(appointment.id) !== normalizedId);
+
+            const list = getAppointmentsLS().filter(appointment => String(appointment.id) !== normalizedId);
+            localStorage.setItem('barbearia_appointments', JSON.stringify(list));
+
             renderAdminTable();
             renderHistory();
             renderTimeSlots();
             await deleteAppointmentFS(normalizedId);
             await deleteCompletedAppointmentFS(normalizedId);
-            removeLocallyCompletedId(normalizedId);
-            _completedIdsFromFirebase = _completedIdsFromFirebase.filter(completedId => String(completedId) !== normalizedId);
             await getAppointmentsFS();
             renderAdminTable();
             renderHistory();
