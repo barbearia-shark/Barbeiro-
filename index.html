@@ -1414,17 +1414,13 @@
         <div class="admin-layout">
             <aside class="admin-menu">
                 <button type="button" class="admin-menu-item active" data-section="agendamentos"
-                    onclick="showAdminSection('agendamentos')"><span class="menu-icon">📅</span>
-                    Agendamentos</button>
+                    onclick="showAdminSection('agendamentos')">Agendamentos</button>
                 <button type="button" class="admin-menu-item" data-section="disponibilidade"
-                    onclick="showAdminSection('disponibilidade')"><span class="menu-icon">🕐</span>
-                    Disponibilidade Semanal</button>
+                    onclick="showAdminSection('disponibilidade')">Disponibilidade Semanal</button>
                 <button type="button" class="admin-menu-item" data-section="configuracoes"
-                    onclick="showAdminSection('configuracoes')"><span class="menu-icon">⚙️</span>
-                    Configurações</button>
+                    onclick="showAdminSection('configuracoes')">Configurações</button>
                 <button type="button" class="admin-menu-item" data-section="historico"
-                    onclick="showAdminSection('historico')"><span class="menu-icon">📊</span>
-                    Histórico</button>
+                    onclick="showAdminSection('historico')">Histórico</button>
             </aside>
             <div class="admin-content">
                 <div class="admin-section" data-section="configuracoes" id="sec-configuracoes">
@@ -1704,7 +1700,7 @@
             });
         }
 
-        // ✅ Fallback pelo status também no admin
+        // Fallback pelo status também no admin
         function isCompletedId(id) {
             const normalizedId = String(id);
             if (_completedIdsFromFirebase.includes(normalizedId)) return true;
@@ -1947,7 +1943,7 @@
             }
         }
 
-        // ✅ CORRIGIDO: aponta para a página do cliente
+        // CORRIGIDO: aponta para a página do cliente
         function logout() {
             window.location.href = '../cliente/index.html';
         }
