@@ -52,22 +52,6 @@
             background-position: center;
         }
 
-        .bg-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.3;
-        }
-
-
-
         .logo {
             display: flex;
             align-items: center;
@@ -178,97 +162,6 @@
             margin: 0 auto;
         }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            padding-top: 120px;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-label {
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            max-width: 480px;
-            margin-bottom: 32px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-        }
-
-        .hero-card {
-            width: 340px;
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-        }
-
-        .hero-card h3 {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .appointment-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .appointment-item:last-child {
-            border-bottom: none;
-        }
-
-        .appointment-time {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .appointment-service {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .hero-card-note {
-            margin-top: 16px;
-            font-size: 11px;
-            color: var(--text-secondary);
-        }
-
         .section-header {
             text-align: center;
             margin-bottom: 48px;
@@ -286,334 +179,6 @@
             font-size: 32px;
             font-weight: 800;
             margin-top: 8px;
-        }
-
-        .services-container {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-        }
-
-        .service-category {
-            margin-bottom: 32px;
-        }
-
-        .service-category:last-child {
-            margin-bottom: 0;
-        }
-
-        .service-category-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .service-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .service-item:last-child {
-            border-bottom: none;
-        }
-
-        .service-info h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .service-info p {
-            font-size: 13px;
-            color: var(--text-secondary);
-        }
-
-        .service-price {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 16px;
-            white-space: nowrap;
-        }
-
-        .team-grid {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 40px 48px;
-            text-align: center;
-            width: 280px;
-            transition: all 0.3s;
-        }
-
-        .team-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-4px);
-        }
-
-        .team-avatar {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid var(--accent);
-            background: linear-gradient(135deg, rgba(79, 195, 247, 0.18), rgba(10, 22, 40, 0.95));
-        }
-
-        .team-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .team-name {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .team-role {
-            color: var(--accent);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .booking-container {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-        }
-
-        .booking-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .booking-step {
-            margin-bottom: 32px;
-        }
-
-        .booking-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-number {
-            color: var(--accent);
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .calendar-box {
-            background: var(--bg-card-solid);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .calendar-header button {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            font-size: 18px;
-            padding: 4px 8px;
-            transition: color 0.3s;
-        }
-
-        .calendar-header button:hover {
-            color: var(--accent);
-        }
-
-        .calendar-header span {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .calendar-weekdays {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .calendar-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-        }
-
-        .calendar-day {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--text-secondary);
-        }
-
-        .calendar-day:hover:not(.empty):not(.disabled) {
-            background: var(--border);
-            color: var(--text-primary);
-        }
-
-        .calendar-day.selected {
-            background: var(--accent);
-            color: var(--bg-dark);
-            font-weight: 700;
-        }
-
-        .calendar-day.empty {
-            cursor: default;
-        }
-
-        .calendar-day.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .time-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .time-slot {
-            background: var(--bg-card-solid);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 10px;
-            text-align: center;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: var(--text-secondary);
-        }
-
-        .time-slot:hover:not(.disabled) {
-            border-color: var(--accent);
-            color: var(--text-primary);
-        }
-
-        .time-slot.selected {
-            background: var(--accent);
-            color: var(--bg-dark);
-            border-color: var(--accent);
-            font-weight: 600;
-        }
-
-        .time-slot.disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-            text-decoration: line-through;
-        }
-
-        .service-checkbox {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            background: var(--bg-card-solid);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .service-checkbox:hover {
-            border-color: var(--border-hover);
-        }
-
-        .service-checkbox.selected {
-            border-color: var(--accent);
-            background: rgba(79, 195, 247, 0.05);
-        }
-
-        .service-checkbox-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .checkbox-box {
-            width: 18px;
-            height: 18px;
-            border: 2px solid var(--text-secondary);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .service-checkbox.selected .checkbox-box {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
-
-        .checkbox-box::after {
-            content: '✓';
-            color: var(--bg-dark);
-            font-size: 12px;
-            font-weight: 700;
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        .service-checkbox.selected .checkbox-box::after {
-            opacity: 1;
-        }
-
-        .service-checkbox-name {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .service-checkbox-price {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 14px;
         }
 
         .form-group {
@@ -650,148 +215,6 @@
         .form-group input::placeholder {
             color: rgba(148, 163, 184, 0.4);
         }
-
-        .summary-box {
-            background: var(--bg-card-solid);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            font-size: 14px;
-        }
-
-        .summary-row.divider {
-            border-top: 1px solid var(--border);
-            margin-top: 8px;
-            padding-top: 16px;
-        }
-
-        .summary-label {
-            color: var(--text-secondary);
-        }
-
-        .summary-value {
-            color: var(--text-primary);
-        }
-
-        .summary-total {
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 16px;
-        }
-
-        .btn-confirm {
-            width: 100%;
-            background: var(--accent);
-            color: var(--bg-dark);
-            border: none;
-            padding: 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
-        }
-
-        .btn-confirm:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 4px 20px rgba(79, 195, 247, 0.3);
-        }
-
-        .btn-confirm:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .action-button {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-secondary);
-            padding: 10px 14px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            min-width: 120px;
-            transition: all 0.2s;
-        }
-
-        .action-button:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .action-button.done {
-            background: #f87171;
-            border-color: #f87171;
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(248, 113, 113, 0.25);
-        }
-
-        .action-button.done:hover {
-            background: #f75b5b;
-            border-color: #f75b5b;
-        }
-
-        .action-button:disabled {
-            opacity: 0.65;
-            cursor: not-allowed;
-        }
-
-        .action-button.done:disabled {
-            background: #f87171;
-            border-color: #f87171;
-            color: #fff;
-        }
-
-        tr.completed-appointment td {
-            text-decoration: line-through;
-            opacity: 0.65;
-        }
-
-        tr.completed-appointment {
-            background: rgba(248, 113, 113, 0.05);
-        }
-
-        .status-done {
-            background: rgba(74, 222, 128, 0.1);
-            color: var(--success);
-        }
-
-        .admin-table tr.completed-row {
-            background: rgba(74, 222, 128, 0.08);
-        }
-
-        .admin-table tr.completed-row td {
-            color: #d1fae5;
-        }
-
-        .admin-table tr.completed-row .client-name {
-            color: var(--success);
-            font-weight: 700;
-        }
-
-        .admin-table tr.completed-row .status {
-            background: rgba(74, 222, 128, 0.2);
-            color: var(--success);
-        }
-
-
 
         .footer {
             background: rgba(10, 22, 40, 0.95);
@@ -1089,7 +512,9 @@
         }
 
         .status-confirmed,
-        .status-concluido {
+        .status-confirmado,
+        .status-concluido,
+        .status-done {
             background: rgba(74, 222, 128, 0.1);
             color: var(--success);
         }
@@ -1132,278 +557,6 @@
             transform: translateX(0);
         }
 
-        @media (max-width: 1024px) {
-            .navbar {
-                padding: 14px 28px;
-            }
-
-            section {
-                padding: 80px 28px;
-            }
-
-            .hero {
-                flex-direction: column;
-                gap: 40px;
-                padding-top: 140px;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero p {
-                max-width: 100%;
-            }
-
-            .hero-card {
-                width: 100%;
-                padding: 24px;
-            }
-
-            .services-container,
-            .booking-container,
-            .admin-table-container,
-            .footer {
-                padding: 32px;
-            }
-
-            .team-card {
-                width: calc(50% - 16px);
-                padding: 32px 28px;
-            }
-
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .booking-grid {
-                gap: 28px;
-            }
-
-            .time-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 12px;
-                padding: 14px 20px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 18px;
-            }
-
-            .hero {
-                padding-top: 120px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .hero-buttons .btn-primary,
-            .hero-buttons .btn-outline {
-                width: 100%;
-            }
-
-            .hero-card,
-            .services-container,
-            .booking-container,
-            .admin-panel,
-            .footer {
-                padding: 24px;
-            }
-
-            .service-item,
-            .appointment-item,
-            .service-checkbox,
-            .summary-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .team-card {
-                width: 100%;
-            }
-
-            .booking-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .calendar-weekdays,
-            .calendar-days {
-                grid-template-columns: repeat(7, minmax(0, 1fr));
-            }
-
-            .time-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-
-            .modal {
-                padding: 28px;
-            }
-
-            .modal-buttons {
-                flex-direction: column;
-            }
-
-            .admin-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-
-            .admin-actions {
-                width: 100%;
-                flex-wrap: wrap;
-            }
-
-            .admin-table th,
-            .admin-table td {
-                padding: 12px 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                padding: 12px 16px;
-            }
-
-            .logo {
-                gap: 8px;
-                font-size: 18px;
-            }
-
-            .nav-links,
-            .hero-buttons,
-            .action-buttons,
-            .modal-buttons,
-            .admin-actions {
-                gap: 10px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .hero-card,
-            .services-container,
-            .booking-container,
-            .admin-panel,
-            .footer {
-                padding: 20px;
-            }
-
-            .hero-label,
-            .service-category-title,
-            .section-label,
-            .team-role,
-            .footer-info-item,
-            .footer-social a,
-            .service-info p,
-            .appointment-service,
-            .summary-row,
-            .calendar-header span,
-            .calendar-weekdays,
-            .calendar-day,
-            .time-slot,
-            .service-checkbox-name,
-            .service-checkbox-price {
-                font-size: 12px;
-            }
-
-            .service-item,
-            .appointment-item,
-            .summary-row {
-                justify-content: flex-start;
-            }
-
-            .calendar-weekdays {
-                display: none;
-            }
-
-            .calendar-days {
-                grid-template-columns: repeat(7, minmax(32px, 1fr));
-                gap: 4px;
-            }
-
-            .calendar-day {
-                min-height: 36px;
-                padding: 8px 4px;
-            }
-
-            .btn-primary,
-            .btn-outline,
-            .btn-whatsapp,
-            .btn-confirm,
-            .action-button,
-            .modal-buttons button {
-                font-size: 13px;
-                padding: 12px 14px;
-            }
-
-            .btn-primary,
-            .btn-outline,
-            .btn-whatsapp,
-            .btn-confirm {
-                width: 100%;
-            }
-
-            .service-checkbox {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .service-checkbox-left {
-                width: 100%;
-            }
-
-            .summary-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 6px;
-            }
-
-            .admin-table-container {
-                overflow-x: auto;
-            }
-
-            .admin-table {
-                min-width: 720px;
-            }
-
-            .footer-bottom {
-                padding-top: 0;
-            }
-        }
-
         .toast-icon {
             font-size: 20px;
         }
@@ -1438,22 +591,6 @@
             color: var(--text-secondary);
             margin-bottom: 12px;
             line-height: 1.7;
-        }
-
-        .config-box ol {
-            margin-left: 20px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            line-height: 1.9;
-        }
-
-        .config-box code {
-            background: var(--bg-dark);
-            padding: 2px 8px;
-            border-radius: 4px;
-            color: var(--accent);
-            font-family: monospace;
-            font-size: 12px;
         }
 
         .config-box .highlight {
@@ -1529,60 +666,6 @@
             cursor: not-allowed;
         }
 
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-card {
-                width: 100%;
-                max-width: 400px;
-            }
-
-            .booking-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-brand p {
-                margin: 0 auto;
-            }
-
-            .navbar {
-                padding: 16px 24px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 80px 24px;
-            }
-
-            .config-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .client-table {
             width: 100%;
             border-collapse: collapse;
@@ -1622,29 +705,7 @@
             letter-spacing: 0.5px;
         }
 
-        @media (max-width: 768px) {
-
-            .client-table th,
-            .client-table td {
-                padding: 12px 10px;
-                font-size: 13px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .bg-wrapper {
-                background-attachment: scroll;
-                background-position: center top;
-            }
-
-            .bg-wrapper::before {
-                background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.85) 50%, rgba(10, 22, 40, 0.75) 100%);
-                opacity: 0.6;
-            }
-        }
-
-
-        /* ===== MENU LATERAL DE SEÇÕES ===== */
+        /* ===== MENU LATERAL ===== */
         .admin-layout {
             display: flex;
             gap: 28px;
@@ -1699,7 +760,6 @@
             font-size: 18px;
             width: 24px;
             text-align: center;
-            display: none;
         }
 
         .admin-content {
@@ -1714,27 +774,6 @@
         .admin-section.active {
             display: block;
             animation: slideDown 0.3s ease;
-        }
-
-        @media (max-width: 900px) {
-            .admin-layout {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .admin-menu {
-                width: 100%;
-                flex-direction: row;
-                overflow-x: auto;
-                position: static;
-                padding: 8px;
-                gap: 8px;
-            }
-
-            .admin-menu-item {
-                padding: 10px 14px;
-                font-size: 13px;
-            }
         }
 
         /* ===== ADMIN POR DIA ===== */
@@ -1907,68 +946,7 @@
             font-weight: 700;
         }
 
-        .day-total-done {
-            color: var(--success);
-            font-weight: 600;
-        }
-
-        /* ===== TOTAIS ===== */
-        .totals-bar {
-            background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 32px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .total-box {
-            text-align: center;
-            padding: 20px;
-            background: var(--bg-card-solid);
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .total-label {
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-        }
-
-        .total-value {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--accent);
-        }
-
-        .total-value.success {
-            color: var(--success);
-        }
-
-        .total-value.danger {
-            color: var(--danger);
-        }
-
-        .total-sublabel {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 6px;
-        }
-
-        .day-empty {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
+        /* ===== HISTÓRICO ===== */
         .history-box {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -2055,77 +1033,6 @@
 
         .btn-delete-small:hover {
             background: rgba(248, 113, 113, 0.12);
-        }
-
-        /* ===== RESPONSIVO ADMIN ===== */
-        @media (max-width: 768px) {
-            .days-container {
-                grid-template-columns: 1fr;
-            }
-
-            .day-card {
-                border-radius: 12px;
-            }
-
-            .day-appointment-item {
-                flex-wrap: wrap;
-                gap: 8px;
-                padding: 12px 16px;
-            }
-
-            .app-price {
-                margin: 0;
-                width: 100%;
-                text-align: left;
-                order: 3;
-            }
-
-            .app-actions {
-                width: 100%;
-                justify-content: flex-end;
-                order: 4;
-            }
-
-            .app-info {
-                order: 1;
-                width: 100%;
-            }
-
-            .totals-bar {
-                grid-template-columns: 1fr;
-                padding: 16px;
-                gap: 12px;
-            }
-
-            .total-box {
-                padding: 16px;
-            }
-
-            .total-value {
-                font-size: 24px;
-            }
-
-            .admin-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .totals-bar {
-                grid-template-columns: 1fr;
-            }
-
-            .day-header {
-                padding: 12px 16px;
-            }
-
-            .day-total-bar {
-                padding: 10px 16px;
-                flex-direction: column;
-                gap: 4px;
-            }
         }
 
         /* ===== CALENDÁRIO ADMIN ===== */
@@ -2290,19 +1197,6 @@
             }
         }
 
-        .day-appointments-panel h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .day-appointments-panel .day-empty {
-            padding: 40px 20px;
-        }
-
         .back-to-calendar {
             display: none;
             margin-bottom: 16px;
@@ -2324,7 +1218,100 @@
             color: var(--accent);
         }
 
+        .day-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            section {
+                padding: 80px 28px;
+            }
+
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .admin-layout {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .admin-menu {
+                width: 100%;
+                flex-direction: row;
+                overflow-x: auto;
+                position: static;
+                padding: 8px;
+                gap: 8px;
+            }
+
+            .admin-menu-item {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            .admin-panel {
+                padding: 100px 20px 40px;
+            }
+
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .admin-actions {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .days-container {
+                grid-template-columns: 1fr;
+            }
+
+            .day-card {
+                border-radius: 12px;
+            }
+
+            .day-appointment-item {
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 12px 16px;
+            }
+
+            .app-price {
+                margin: 0;
+                width: 100%;
+                text-align: left;
+                order: 3;
+            }
+
+            .app-actions {
+                width: 100%;
+                justify-content: flex-end;
+                order: 4;
+            }
+
+            .app-info {
+                order: 1;
+                width: 100%;
+            }
+
             .admin-calendar-grid {
                 gap: 4px;
             }
@@ -2343,6 +1330,14 @@
             .admin-calendar-section {
                 padding: 20px;
             }
+
+            .modal {
+                padding: 28px;
+            }
+
+            .modal-buttons {
+                flex-direction: column;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2357,14 +1352,16 @@
                 top: 2px;
                 right: 3px;
             }
+
+            .admin-header h1 {
+                font-size: 22px;
+            }
         }
     </style>
-    <base target="_blank">
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
         import { getFirestore, collection, addDoc, getDocs, query, where, deleteDoc, doc, onSnapshot, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
 
         const firebaseConfig = {
             apiKey: "AIzaSyDj-_Ckvg_PcJEnbUM0hKKD4_qChM54Eig",
@@ -2397,11 +1394,6 @@
             window._firebaseReady = false;
         }
     </script>
-    <base target="_blank">
-    <base target="_blank">
-    <base target="_blank">
-    <base target="_blank">
-    <base target="_blank">
 </head>
 
 <body>
@@ -2436,13 +1428,11 @@
             </aside>
             <div class="admin-content">
                 <div class="admin-section" data-section="configuracoes" id="sec-configuracoes">
-                    <!-- CONFIGURAÇÕES -->
                     <div class="config-grid">
                         <div class="config-box">
                             <h3>Notificação por WhatsApp</h3>
                             <p>Quando um cliente faz agendamento, uma mensagem é enviada automaticamente para o WhatsApp
-                                do
-                                barbeiro.</p>
+                                do barbeiro.</p>
                             <p><span class="highlight">Status:</span> <span id="whatsapp-status">Número não
                                     configurado</span></p>
                             <div class="form-group" style="margin-top: 12px;">
@@ -2456,23 +1446,18 @@
                                 style="margin-top: 12px; display: none;" target="_blank">Testar WhatsApp</a>
                         </div>
                     </div>
-
                 </div>
                 <div class="admin-section" data-section="disponibilidade" id="sec-disponibilidade">
-                    <!-- DISPONIBILIDADE SEMANAL -->
                     <div class="availability-box">
                         <h3>Disponibilidade Semanal</h3>
                         <p class="availability-description">Clique nos horários para ativar/desativar. Os selecionados
-                            ficam azuis e
-                            serão exibidos aos clientes.</p>
+                            ficam azuis e serão exibidos aos clientes.</p>
                         <div id="availability-days"></div>
                         <button class="btn-primary" onclick="saveAvailability()" style="margin-top: 16px;">Salvar
                             Disponibilidade</button>
                     </div>
-
                 </div>
                 <div class="admin-section active" data-section="agendamentos" id="sec-agendamentos">
-                    <!-- CALENDÁRIO ADMIN -->
                     <div class="admin-calendar-section">
                         <div class="admin-calendar-header">
                             <h3 id="admin-calendar-month">Setembro 2026</h3>
@@ -2491,11 +1476,9 @@
                             <div class="admin-calendar-weekday">Sáb</div>
                         </div>
                         <div class="admin-calendar-grid" id="admin-calendar-days" style="margin-top: 6px;">
-                            <!-- Dias gerados via JS -->
                         </div>
                     </div>
 
-                    <!-- AGENDAMENTOS DO DIA SELECIONADO -->
                     <div class="back-to-calendar" id="back-to-calendar">
                         <button onclick="showAllAppointments()">&#10094; Voltar para todos os agendamentos</button>
                     </div>
@@ -2508,7 +1491,6 @@
                     <div class="days-container" id="days-container">
                         <div class="day-empty">Carregando agendamentos...</div>
                     </div>
-
                 </div>
                 <div class="admin-section" data-section="historico" id="sec-historico">
                     <div class="history-box" style="margin-top: 0;">
@@ -2522,10 +1504,11 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- /sec-historico -->
-            </div><!-- /admin-content -->
-        </div><!-- /admin-layout -->
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="modal-overlay" id="login-modal">
         <div class="modal">
             <h2>Área do Barbeiro</h2>
@@ -2559,14 +1542,10 @@
         </div>
     </div>
 
-
     <script>
         const BARBER_WHATSAPP = "553899390267";
         let whatsappEnabled = true;
 
-        let currentDate = new Date();
-        let selectedDate = null;
-        let selectedTime = null;
         let selectedServices = [];
         let barberAvailability = {};
         let _appointmentsCache = [];
@@ -2587,7 +1566,7 @@
             return window._firebaseReady && window._db;
         }
 
-        // ========== AGENDAMENTOS (somente Firebase) ==========
+        // ========== AGENDAMENTOS ==========
         async function getAppointmentsFS() {
             if (!isFirebaseReady()) return [];
             try {
@@ -2600,19 +1579,6 @@
             } catch (e) {
                 console.warn('Erro ao buscar agendamentos:', e);
                 return [];
-            }
-        }
-
-        async function addAppointmentFS(data) {
-            if (!isFirebaseReady()) return data;
-            try {
-                const col = window._collection(window._db, 'appointments');
-                const ref = await window._addDoc(col, data);
-                data.id = ref.id;
-                return data;
-            } catch (e) {
-                console.warn('Erro ao adicionar agendamento:', e);
-                return data;
             }
         }
 
@@ -2690,20 +1656,7 @@
             }
         }
 
-        // ========== COMPLETED (Firebase) ==========
-        async function getCompletedAppointmentsFS() {
-            if (!isFirebaseReady()) return [];
-            try {
-                const col = window._collection(window._db, 'completedAppointments');
-                const snap = await window._getDocs(col);
-                const list = [];
-                snap.forEach(d => list.push(d.id));
-                return list;
-            } catch (e) {
-                return [];
-            }
-        }
-
+        // ========== COMPLETED ==========
         async function addCompletedAppointmentFS(id, data) {
             if (!isFirebaseReady()) return;
             try {
@@ -2717,7 +1670,7 @@
             }
         }
 
-        // ========== LISTENERS (tempo real) ==========
+        // ========== LISTENERS ==========
         function listenAppointments(callback) {
             if (!isFirebaseReady()) return;
             const col = window._collection(window._db, 'appointments');
@@ -2751,7 +1704,7 @@
             });
         }
 
-        // ✅ CORRIGIDO: fallback pelo status do próprio agendamento
+        // ✅ Fallback pelo status também no admin
         function isCompletedId(id) {
             const normalizedId = String(id);
             if (_completedIdsFromFirebase.includes(normalizedId)) return true;
@@ -2790,153 +1743,29 @@
             }
         });
 
-        // ========== CALENDÁRIO CLIENTE (não usado no admin, mas mantido) ==========
-        function renderCalendar() {
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
-            const firstDay = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            document.getElementById('calendar-month').textContent = monthNames[month] + ' ' + year;
-            const container = document.getElementById('calendar-days');
-            container.innerHTML = '';
-            for (let i = 0; i < firstDay; i++) {
-                const div = document.createElement('div');
-                div.className = 'calendar-day empty';
-                container.appendChild(div);
-            }
-            const today = new Date();
-            for (let day = 1; day <= daysInMonth; day++) {
-                const div = document.createElement('div');
-                div.className = 'calendar-day';
-                div.textContent = day;
-                const thisDate = new Date(year, month, day);
-                const isPast = thisDate < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-                if (isPast) {
-                    div.classList.add('disabled');
-                } else {
-                    div.onclick = function () { selectDate(day); };
-                }
-                if (selectedDate && selectedDate.getDate() === day &&
-                    selectedDate.getMonth() === month &&
-                    selectedDate.getFullYear() === year) {
-                    div.classList.add('selected');
-                }
-                container.appendChild(div);
-            }
+        // ========== HELPERS ==========
+        function formatDate(date) {
+            if (!date) return '';
+            const d = String(date.getDate()).padStart(2, '0');
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const y = date.getFullYear();
+            return d + '/' + m + '/' + y;
         }
 
-        function changeMonth(delta) {
-            currentDate.setMonth(currentDate.getMonth() + delta);
-            renderCalendar();
+        function getStatusClass(status) {
+            return 'status-' + String(status).toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, '-');
         }
 
-        function selectDate(day) {
-            selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-            selectedTime = null;
-            renderCalendar();
-            renderTimeSlots();
-            updateSummary();
-            checkFormValidity();
+        function showToast(title, message) {
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            const toast = document.getElementById('toast');
+            toast.classList.add('active');
+            setTimeout(() => toast.classList.remove('active'), 4000);
         }
 
-        function renderTimeSlots() {
-            const container = document.getElementById('time-grid');
-            if (!container) return;
-            container.innerHTML = '';
-            if (!selectedDate) {
-                container.innerHTML = '<div style="color: var(--text-secondary); font-size: 14px;">Selecione uma data para ver os horários disponíveis.</div>';
-                return;
-            }
-            const availableTimes = getAvailableTimesForDate(selectedDate);
-            const bookedTimes = getBookedTimesForDate(selectedDate);
-            if (availableTimes.length === 0) {
-                container.innerHTML = '<div style="color: var(--text-secondary); font-size: 14px;">Nenhum horário disponível para o dia selecionado.</div>';
-                return;
-            }
-            availableTimes.forEach(time => {
-                const div = document.createElement('div');
-                div.className = 'time-slot';
-                div.textContent = time;
-                const isBooked = bookedTimes.includes(time);
-                const isSelected = selectedTime === time;
-                if (isBooked) div.classList.add('disabled');
-                if (isSelected) div.classList.add('selected');
-                div.onclick = function () {
-                    if (isBooked) {
-                        showToast('Horário indisponível', 'Este horário já foi reservado. Escolha outro horário.');
-                    } else {
-                        selectTime(time);
-                    }
-                };
-                container.appendChild(div);
-            });
-        }
-
-        function selectTime(time) {
-            selectedTime = time;
-            renderTimeSlots();
-            updateSummary();
-            checkFormValidity();
-        }
-
-        function isAppointmentActive(appointment) {
-            if (!appointment || !appointment.status) return false;
-            if (isCompletedId(appointment.id)) return false;
-            const status = String(appointment.status).trim();
-            return status !== 'Concluído';
-        }
-
-        function getBookedTimesForDate(date) {
-            if (!date) return [];
-            const dateStr = formatDate(date);
-            return _appointmentsCache
-                .filter(a => a.date === dateStr && isAppointmentActive(a))
-                .map(a => a.time);
-        }
-
-        function getAvailableTimesForDate(date) {
-            if (!date) return [];
-            const dayKey = weekDayKeys[date.getDay()];
-            return barberAvailability[dayKey] || [];
-        }
-
-        function toggleService(el) {
-            const service = el.dataset.service;
-            const price = parseFloat(el.dataset.price);
-            if (el.classList.contains('selected')) {
-                el.classList.remove('selected');
-                selectedServices = selectedServices.filter(s => s.name !== service);
-            } else {
-                el.classList.add('selected');
-                selectedServices.push({ name: service, price: price });
-            }
-            updateSummary();
-            checkFormValidity();
-        }
-
-        function updateSummary() {
-            if (!document.getElementById('summary-count')) return;
-            const count = selectedServices.length;
-            const total = selectedServices.reduce((sum, s) => sum + s.price, 0);
-            const servicesNames = selectedServices.map(s => s.name).join(', ') || '—';
-            document.getElementById('summary-count').textContent = count;
-            document.getElementById('summary-services').textContent = servicesNames;
-            document.getElementById('summary-services-price').textContent = count > 0 ? 'R$ ' + total.toFixed(2).replace('.', ',') : '—';
-            document.getElementById('summary-time').textContent = selectedDate && selectedTime ? formatDate(selectedDate) + ' às ' + selectedTime : '—';
-            document.getElementById('summary-total').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
-        }
-
-        function normalizePhone(phone) {
-            return phone.replace(/\D/g, '');
-        }
-
+        // ========== DELETE ==========
         let appointmentPendingDeletion = null;
-
-        function showHistory() {
-            document.getElementById('history-content').style.display = 'block';
-            document.getElementById('show-history-btn').style.display = 'none';
-            renderHistory();
-        }
 
         function openDeleteModal(id) {
             appointmentPendingDeletion = id;
@@ -2966,12 +1795,10 @@
             renderAdminTable();
             renderAdminCalendar();
             renderHistory();
-            renderTimeSlots();
             showToast('Agendamento excluído', 'O agendamento foi removido com sucesso.');
         }
 
-        // ✅ CORRIGIDO: grava o status ANTES de tentar criar o doc em completedAppointments
-        // Se a segunda escrita falhar, o status já está persistido e o isCompletedId encontra pelo fallback.
+        // ========== MARCAR COMO FEITO ==========
         async function markAppointmentDone(id) {
             const normalizedId = String(id);
             const appointment = _appointmentsCache.find(a => String(a.id) === normalizedId);
@@ -2984,14 +1811,11 @@
                 return;
             }
 
-            // 1) Atualiza status no doc original — FONTE DE VERDADE
             await updateAppointmentStatusFS(normalizedId, 'Concluído');
 
-            // 2) Atualiza cache local imediatamente (UI responde na hora)
             const idx = _appointmentsCache.findIndex(a => String(a.id) === normalizedId);
             if (idx !== -1) _appointmentsCache[idx].status = 'Concluído';
 
-            // 3) Tenta criar doc em completedAppointments (para o histórico/consulta do cliente)
             try {
                 await addCompletedAppointmentFS(normalizedId, {
                     date: appointment.date,
@@ -3010,104 +1834,10 @@
             renderAdminTable();
             renderAdminCalendar();
             renderHistory();
-            renderTimeSlots();
             showToast('Agendamento concluído', 'Este horário ficou disponível para outro cliente.');
         }
 
-        function checkFormValidity() {
-            const confirmButton = document.getElementById('btn-confirm');
-            if (!confirmButton) return;
-            const name = document.getElementById('client-name').value.trim();
-            const phone = document.getElementById('client-phone').value.trim();
-            const valid = selectedDate && selectedTime && selectedServices.length > 0 && name && phone.length >= 14;
-            confirmButton.disabled = !valid;
-        }
-
-        function formatPhone(input) {
-            let value = input.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.slice(0, 11);
-            if (value.length > 10) {
-                input.value = '(' + value.slice(0, 2) + ') ' + value.slice(2, 7) + '-' + value.slice(7);
-            } else if (value.length > 6) {
-                input.value = '(' + value.slice(0, 2) + ') ' + value.slice(2, 6) + '-' + value.slice(6);
-            } else if (value.length > 2) {
-                input.value = '(' + value.slice(0, 2) + ') ' + value.slice(2);
-            } else if (value.length > 0) {
-                input.value = '(' + value;
-            }
-            checkFormValidity();
-        }
-
-        async function confirmBooking() {
-            const name = document.getElementById('client-name').value.trim();
-            const phone = document.getElementById('client-phone').value.trim();
-            const total = selectedServices.reduce((sum, s) => sum + s.price, 0);
-
-            barberAvailability = await getAvailabilityFS();
-            await getAppointmentsFS();
-
-            const availability = getAvailableTimesForDate(selectedDate);
-            if (!availability.includes(selectedTime)) {
-                showToast('Horário inválido', 'Este horário não está mais disponível. Escolha outro.');
-                selectedTime = null;
-                renderTimeSlots();
-                checkFormValidity();
-                return;
-            }
-            const bookedTimes = getBookedTimesForDate(selectedDate);
-            if (bookedTimes.includes(selectedTime)) {
-                showToast('Horário ocupado', 'Este horário já foi reservado. Escolha outro.');
-                selectedTime = null;
-                renderTimeSlots();
-                checkFormValidity();
-                return;
-            }
-
-            const appointment = {
-                id: Date.now().toString(),
-                name: name,
-                phone: phone,
-                date: formatDate(selectedDate),
-                time: selectedTime,
-                services: selectedServices.map(s => s.name).join(', '),
-                total: total,
-                status: 'Confirmed',
-                createdAt: new Date().toISOString()
-            };
-
-            await addAppointmentFS(appointment);
-            await getAppointmentsFS();
-
-            sendWhatsAppNotification(appointment);
-
-            selectedServices = [];
-            selectedTime = null;
-            document.getElementById('client-name').value = '';
-            document.getElementById('client-phone').value = '';
-            document.querySelectorAll('.service-checkbox').forEach(el => el.classList.remove('selected'));
-            renderTimeSlots();
-            updateSummary();
-            checkFormValidity();
-            document.getElementById('pix-actions').style.display = 'flex';
-
-            showToast('Agendamento Confirmado!', name + ', seu horário foi marcado para ' + appointment.date + ' às ' + appointment.time + '.');
-        }
-
-        function sendWhatsAppNotification(appointment) {
-            if (!BARBER_WHATSAPP || !whatsappEnabled) return;
-            const message = encodeURIComponent(
-                'NOVO AGENDAMENTO — BARBEARIA SHARK\n\n' +
-                'Cliente: ' + appointment.name + '\n' +
-                'Contato: ' + appointment.phone + '\n' +
-                'Data: ' + appointment.date + '\n' +
-                'Horário: ' + appointment.time + '\n' +
-                'Serviços: ' + appointment.services + '\n' +
-                'Total: R$ ' + appointment.total.toFixed(2).replace('.', ',') + '\n\n' +
-                'Agendado em: ' + new Date().toLocaleString('pt-BR')
-            );
-            window.open('https://wa.me/' + BARBER_WHATSAPP + '?text=' + message, '_blank');
-        }
-
+        // ========== CONFIG UI ==========
         async function toggleWhatsAppEnabled(input) {
             whatsappEnabled = input.checked;
             await saveConfigFS({ whatsappEnabled });
@@ -3115,10 +1845,35 @@
             showToast('WhatsApp atualizado', whatsappEnabled ? 'Notificações por WhatsApp ativadas.' : 'Notificações por WhatsApp desativadas.');
         }
 
+        function updateConfigStatus() {
+            const waStatus = document.getElementById('whatsapp-status');
+            const waTestBtn = document.getElementById('whatsapp-test-btn');
+            const waCheckbox = document.getElementById('whatsapp-enabled-checkbox');
+            if (waCheckbox) waCheckbox.checked = whatsappEnabled;
+
+            if (!whatsappEnabled) {
+                waStatus.textContent = 'WhatsApp desativado pelo barbeiro';
+                waStatus.style.color = '#fbbf24';
+                waTestBtn.style.display = 'none';
+                return;
+            }
+
+            if (BARBER_WHATSAPP && BARBER_WHATSAPP.length >= 12) {
+                waStatus.textContent = 'Configurado (' + BARBER_WHATSAPP + ')';
+                waStatus.style.color = 'var(--success)';
+                waTestBtn.style.display = 'inline-flex';
+                waTestBtn.href = 'https://wa.me/' + BARBER_WHATSAPP + '?text=' + encodeURIComponent('Teste de notificação da Barbearia Shark!');
+            } else {
+                waStatus.textContent = 'Número não configurado';
+                waStatus.style.color = '#fbbf24';
+                waTestBtn.style.display = 'none';
+            }
+        }
+
+        // ========== DISPONIBILIDADE ==========
         async function saveAvailability() {
             await saveAvailabilityFS(barberAvailability);
             showToast('Disponibilidade salva', 'Os horários do barbeiro foram atualizados com sucesso.');
-            renderTimeSlots();
         }
 
         function renderAvailabilityEditor() {
@@ -3155,14 +1910,7 @@
             }
         }
 
-        function formatDate(date) {
-            if (!date) return '';
-            const d = String(date.getDate()).padStart(2, '0');
-            const m = String(date.getMonth() + 1).padStart(2, '0');
-            const y = date.getFullYear();
-            return d + '/' + m + '/' + y;
-        }
-
+        // ========== LOGIN ==========
         function openLoginModal() {
             document.getElementById('login-modal').classList.add('active');
             document.getElementById('login-password').value = '';
@@ -3199,39 +1947,12 @@
             }
         }
 
+        // ✅ CORRIGIDO: aponta para a página do cliente
         function logout() {
-            window.location.href = 'https://SEU-LINK-DO-CLIENTE-AQUI.com';
+            window.location.href = '../cliente/index.html';
         }
 
-        function updateConfigStatus() {
-            const waStatus = document.getElementById('whatsapp-status');
-            const waTestBtn = document.getElementById('whatsapp-test-btn');
-            const waCheckbox = document.getElementById('whatsapp-enabled-checkbox');
-            if (waCheckbox) waCheckbox.checked = whatsappEnabled;
-
-            if (!whatsappEnabled) {
-                waStatus.textContent = 'WhatsApp desativado pelo barbeiro';
-                waStatus.style.color = '#fbbf24';
-                waTestBtn.style.display = 'none';
-                return;
-            }
-
-            if (BARBER_WHATSAPP && BARBER_WHATSAPP.length >= 12) {
-                waStatus.textContent = 'Configurado (' + BARBER_WHATSAPP + ')';
-                waStatus.style.color = 'var(--success)';
-                waTestBtn.style.display = 'inline-flex';
-                waTestBtn.href = 'https://wa.me/' + BARBER_WHATSAPP + '?text=' + encodeURIComponent('Teste de notificação da Barbearia Shark!');
-            } else {
-                waStatus.textContent = 'Número não configurado';
-                waStatus.style.color = '#fbbf24';
-                waTestBtn.style.display = 'none';
-            }
-        }
-
-        function getStatusClass(status) {
-            return 'status-' + status.toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g, '').replace(/\s+/g, '-');
-        }
-
+        // ========== TABELA ADMIN ==========
         function renderAdminTable() {
             const container = document.getElementById('days-container');
             if (!container) return;
@@ -3352,21 +2073,8 @@
             });
         }
 
-        function copyBarberPix() {
-            const pixKey = '38999390267';
-            navigator.clipboard.writeText(pixKey).then(() => {
-                showToast('Chave Pix copiada', 'A chave Pix do barbeiro foi copiada para a área de transferência.');
-            }).catch(() => {
-                showToast('Falha ao copiar', 'Não foi possível copiar a chave Pix. Copie manualmente.');
-            });
-        }
-
-        function showToast(title, message) {
-            document.getElementById('toast-title').textContent = title;
-            document.getElementById('toast-message').textContent = message;
-            const toast = document.getElementById('toast');
-            toast.classList.add('active');
-            setTimeout(() => toast.classList.remove('active'), 4000);
+        function showToastSafe(title, message) {
+            showToast(title, message);
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -3382,6 +2090,12 @@
                 i.classList.toggle('active', i.dataset.section === name);
             });
             if (name === 'historico') showHistory();
+        }
+
+        function showHistory() {
+            document.getElementById('history-content').style.display = 'block';
+            document.getElementById('show-history-btn').style.display = 'none';
+            renderHistory();
         }
 
         // ========== CALENDÁRIO ADMIN ==========
@@ -3538,7 +2252,6 @@
             document.getElementById('back-to-calendar').style.display = 'none';
         }
     </script>
-
 </body>
 
 </html>
