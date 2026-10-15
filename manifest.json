@@ -1,25 +1,15 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
+  "name": "Barbearia Shark",
+  "short_name": "Shark",
+  "start_url": ".",
   "display": "standalone",
-  "name": "barbearia-shark",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "barb-shark.",
-  "start_url": "/",
-  "theme_color": "#ffffff",
+  "background_color": "#0a1628",
+  "theme_color": "#4fc3f7",
   "icons": [
     {
-      "src": "https://barbearia-shark.github.io/Barbeiro-/favicon.ico",
-      "type": "image/x-icon",
-      "isSquare": false,
-      "isPng": false,
-      "isWebp": false,
-      "isJpg": false,
-      "width": 0,
-      "is512x512": false,
-      "is256x256": false,
-      "is192x192": false
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
