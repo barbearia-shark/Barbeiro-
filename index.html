@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="manifest" href="manifest.json">
     <style>
         :root {
             --bg-dark: #0a1628;
@@ -1563,6 +1562,18 @@
             return window._firebaseReady && window._db;
         }
 
+        function isFromOctoberOnward(dateStr) {
+            const parts = String(dateStr || '').split('/').map(Number);
+            if (parts.length !== 3 || parts.some(part => !Number.isInteger(part))) return false;
+
+            const [day, month, year] = parts;
+            const date = new Date(year, month - 1, day);
+            if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) return false;
+
+            const currentYear = new Date().getFullYear();
+            return year > currentYear || (year === currentYear && month >= 10);
+        }
+
         // ========== AGENDAMENTOS ==========
         async function getAppointmentsFS() {
             if (!isFirebaseReady()) return [];
@@ -1954,7 +1965,9 @@
             const container = document.getElementById('days-container');
             if (!container) return;
 
-            const appointments = _appointmentsCache.filter(app => !isCompletedId(app.id));
+            const appointments = _appointmentsCache.filter(app =>
+                !isCompletedId(app.id) && isFromOctoberOnward(app.date)
+            );
 
             if (appointments.length === 0) {
                 container.innerHTML = '<div class="day-empty">Nenhum agendamento pendente.</div>';
@@ -2033,6 +2046,7 @@
 
             const months = {};
             _appointmentsCache.forEach(app => {
+                if (!isFromOctoberOnward(app.date)) return;
                 const parts = String(app.date || '').split('/');
                 if (parts.length !== 3) return;
                 const monthKey = parts[2] + '-' + parts[1];
@@ -2123,7 +2137,7 @@
 
             const appointmentsByDay = {};
             _appointmentsCache.forEach(app => {
-                if (!isCompletedId(app.id)) {
+                if (!isCompletedId(app.id) && isFromOctoberOnward(app.date)) {
                     if (!appointmentsByDay[app.date]) appointmentsByDay[app.date] = 0;
                     appointmentsByDay[app.date]++;
                 }
@@ -2197,7 +2211,9 @@
             title.textContent = date.getDate() + ' de ' + monthName;
             backBtn.style.display = 'block';
 
-            const dayApps = _appointmentsCache.filter(app => app.date === dateStr && !isCompletedId(app.id));
+            const dayApps = _appointmentsCache.filter(app =>
+                app.date === dateStr && !isCompletedId(app.id) && isFromOctoberOnward(app.date)
+            );
 
             if (dayApps.length === 0) {
                 container.innerHTML = '<div class="day-empty">Nenhum agendamento para este dia.</div>';
